@@ -1,11 +1,12 @@
 extends KinematicBody2D
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
-onready var sprite = $AnimatedSprite
+onready var sprite = $Sprite
 onready var hurtbox = $Hurtbox
 onready var softCollision = $SoftCollision
 onready var wanderController = $WanderController
-onready var animationPlayer = $BlinkAnimationPlayer
+onready var blinkAnimationPlayer = $BlinkAnimationPlayer
+onready var animationStateMachine = $AnimationTree.get("parameters/playback")
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 
@@ -44,7 +45,7 @@ func _physics_process(delta):
 				update_wander()
 			
 			accelerate_towards_point(wanderController.target_position, delta)	
-			
+			animationStateMachine.travel("Move")
 			if global_position.distance_to(wanderController.target_position) <= WANDER_TARGET_RANGE:
 				update_wander()
 			
@@ -79,22 +80,25 @@ func pick_random_state(state_list):
 	return state_list.pop_front()
 	
 func _on_Hurtbox_area_entered(area):	
+	animationStateMachine.travel("Hurt")
 	knockback = area.knockback_vector * 120
 	stats.health -= area.damage		
 	hurtbox.create_hitEffect()
 	hurtbox.start_invincibillity(0.4)	
 		
 func _on_Stats_no_health():		
-	var enemyDeathEffect = EnemyDeathEffect.instance()
-	get_parent().add_child(enemyDeathEffect)
-	enemyDeathEffect.global_position = global_position	
-	queue_free()
+	animationStateMachine.travel("Death")
+	#var enemyDeathEffect = EnemyDeathEffect.instance()
+	#get_parent().add_child(enemyDeathEffect)
+	#enemyDeathEffect.global_position = global_position	
+	#queue_free()
 	
 
 func _on_Hurtbox_invinciblity_started():
-	animationPlayer.play("Start")
+	blinkAnimationPlayer.play("Start")
+	
 func _on_Hurtbox_invincibility_ended():
-	animationPlayer.play("Stop")
+	blinkAnimationPlayer.play("Stop")
 
 
 
