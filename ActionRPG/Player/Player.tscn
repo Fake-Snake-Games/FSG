@@ -713,7 +713,7 @@ start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=46]
 
-[sub_resource type="CapsuleShape2D" id=51]
+[sub_resource type="CapsuleShape2D" id=47]
 
 [sub_resource type="CapsuleShape2D" id=48]
 radius = 7.0
@@ -800,21 +800,25 @@ parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
+visible = false
 position = Vector2( 0, -4 )
 rotation = 1.5708
 
 [node name="SwordHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
+visible = false
 position = Vector2( 15, 0 )
 collision_layer = 2147483648
 collision_mask = 8
 script = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="HitboxPivot/SwordHitbox" index="0"]
+visible = false
 position = Vector2( 0, -6.55671e-07 )
-shape = SubResource( 51 )
+shape = SubResource( 47 )
 disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -827,6 +831,11 @@ volume_db = -50.0
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Start = SubResource( 49 )
 anims/Stop = SubResource( 50 )
+
+[node name="ProjectilePivot" type="Position2D" parent="."]
+
+[node name="ProjectileSpawn" type="Position2D" parent="ProjectilePivot"]
+position = Vector2( 20.3947, -4.63515 )
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invinciblity_started" from="Hurtbox" to="." method="_on_Hurtbox_invinciblity_started"]

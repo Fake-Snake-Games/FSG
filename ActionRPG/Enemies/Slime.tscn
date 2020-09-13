@@ -10,13 +10,12 @@
 [ext_resource path="res://SoftCollision.tscn" type="PackedScene" id=8]
 [ext_resource path="res://WhiteColor.shader" type="Shader" id=9]
 
-[sub_resource type="ShaderMaterial" id=14]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 9 )
 shader_param/active = false
 
-[sub_resource type="Animation" id=1]
-resource_name = "Attack"
+[sub_resource type="Animation" id=2]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -31,8 +30,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Death"
+[sub_resource type="Animation" id=3]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -61,8 +59,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Hit"
+[sub_resource type="Animation" id=4]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -77,8 +74,7 @@ tracks/0/keys = {
 "values": [ 12, 13, 14, 15 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "Idle"
+[sub_resource type="Animation" id=5]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -94,8 +90,7 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Movement"
+[sub_resource type="Animation" id=6]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -110,86 +105,86 @@ tracks/0/keys = {
 "values": [ 4, 5, 6, 7 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "Attack"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "Death"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Hit"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Movement"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=26]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=12]
-states/Attack/node = SubResource( 15 )
+[sub_resource type="AnimationNodeStateMachine" id=26]
+states/Attack/node = SubResource( 7 )
 states/Attack/position = Vector2( 541, 170 )
-states/Death/node = SubResource( 16 )
+states/Death/node = SubResource( 8 )
 states/Death/position = Vector2( 493, 370 )
-states/Hurt/node = SubResource( 17 )
+states/Hurt/node = SubResource( 9 )
 states/Hurt/position = Vector2( 801, 93 )
-states/Idle/node = SubResource( 18 )
+states/Idle/node = SubResource( 10 )
 states/Idle/position = Vector2( 197, 176 )
-states/Move/node = SubResource( 19 )
+states/Move/node = SubResource( 11 )
 states/Move/position = Vector2( 448, 37 )
-transitions = [ "Idle", "Move", SubResource( 20 ), "Move", "Idle", SubResource( 21 ), "Idle", "Attack", SubResource( 22 ), "Attack", "Idle", SubResource( 23 ), "Idle", "Death", SubResource( 24 ), "Attack", "Death", SubResource( 25 ), "Move", "Death", SubResource( 26 ), "Hurt", "Death", SubResource( 27 ), "Attack", "Hurt", SubResource( 28 ), "Move", "Hurt", SubResource( 29 ), "Attack", "Move", SubResource( 30 ), "Move", "Attack", SubResource( 31 ), "Hurt", "Move", SubResource( 32 ), "Hurt", "Idle", SubResource( 33 ) ]
+transitions = [ "Idle", "Move", SubResource( 12 ), "Move", "Idle", SubResource( 13 ), "Idle", "Attack", SubResource( 14 ), "Attack", "Idle", SubResource( 15 ), "Idle", "Death", SubResource( 16 ), "Attack", "Death", SubResource( 17 ), "Move", "Death", SubResource( 18 ), "Hurt", "Death", SubResource( 19 ), "Attack", "Hurt", SubResource( 20 ), "Move", "Hurt", SubResource( 21 ), "Attack", "Move", SubResource( 22 ), "Move", "Attack", SubResource( 23 ), "Hurt", "Move", SubResource( 24 ), "Hurt", "Idle", SubResource( 25 ) ]
 start_node = "Idle"
 end_node = "Death"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=28]
 radius = 4.0
 height = 0.0
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=29]
 radius = 11.0
 height = 2.0
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=30]
 radius = 103.019
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=31]
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=32]
 resource_name = "Start"
 length = 0.2
 tracks/0/type = "value"
@@ -205,7 +200,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=33]
 resource_name = "Stop"
 length = 0.1
 tracks/0/type = "value"
@@ -225,7 +220,7 @@ tracks/0/keys = {
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-material = SubResource( 14 )
+material = SubResource( 1 )
 position = Vector2( 0, -7 )
 texture = ExtResource( 2 )
 vframes = 3
@@ -233,21 +228,21 @@ hframes = 8
 frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Attack = SubResource( 1 )
-anims/Death = SubResource( 2 )
-anims/Hit = SubResource( 3 )
-anims/Idle = SubResource( 4 )
-anims/Movement = SubResource( 5 )
+anims/Attack = SubResource( 2 )
+anims/Death = SubResource( 3 )
+anims/Hit = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Movement = SubResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 12 )
+tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 13 )
+parameters/playback = SubResource( 27 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 6 )
+shape = SubResource( 28 )
 
 [node name="Hurtbox" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -255,13 +250,13 @@ collision_layer = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2( 0, -2 )
-shape = SubResource( 7 )
+shape = SubResource( 29 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 7 )]
 visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 30 )
 
 [node name="HitBox" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -269,7 +264,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 rotation = 1.5708
-shape = SubResource( 8 )
+shape = SubResource( 31 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 8 )]
 visible = false
@@ -280,8 +275,8 @@ max_health = 2
 [node name="WanderController" parent="." instance=ExtResource( 5 )]
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Start = SubResource( 34 )
-anims/Stop = SubResource( 35 )
+anims/Start = SubResource( 32 )
+anims/Stop = SubResource( 33 )
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="invincibility_ended" from="Hurtbox" to="." method="_on_Hurtbox_invincibility_ended"]
 [connection signal="invinciblity_started" from="Hurtbox" to="." method="_on_Hurtbox_invinciblity_started"]

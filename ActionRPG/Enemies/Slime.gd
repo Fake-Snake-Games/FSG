@@ -1,4 +1,5 @@
 extends KinematicBody2D
+
 onready var stats = $Stats
 onready var playerDetectionZone = $PlayerDetectionZone
 onready var sprite = $Sprite

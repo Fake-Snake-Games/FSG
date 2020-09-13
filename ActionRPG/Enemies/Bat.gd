@@ -78,7 +78,7 @@ func pick_random_state(state_list):
 	state_list.shuffle()
 	return state_list.pop_front()
 	
-func _on_Hurtbox_area_entered(area):	
+func _on_Hurtbox_area_entered(area):
 	knockback = area.knockback_vector * 120
 	stats.health -= area.damage		
 	hurtbox.create_hitEffect()
