@@ -17,3 +17,5 @@ hframes = 8
 frame = 24
 
 [node name="WeaponBaseClass" parent="." instance=ExtResource( 1 )]
+weapon_name = "Gun"
+weapon_type = 1
