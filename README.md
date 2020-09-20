@@ -1,1 +1,3 @@
-# FSG_RPG
+# FSG
+
+Fake Snake Games Repo
