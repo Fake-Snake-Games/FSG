@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Weapon/Sword1.png" type="Texture" id=1]
+[ext_resource path="res://Weapon/WeaponBaseClass.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Overlay/HitBox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Weapon/Sword.gd" type="Script" id=4]
+[ext_resource path="res://Overlay/SwordHitBox.gd" type="Script" id=5]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 11.7629
+
+[node name="Sword" type="KinematicBody2D"]
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_rect = Rect2( 129, 49, 59, 57 )
+
+[node name="WeaponBaseClass" parent="." instance=ExtResource( 2 )]
+weapon_name = "Sword"
+
+[node name="HitBox" parent="." instance=ExtResource( 3 )]
+collision_mask = 8
+script = ExtResource( 5 )
+damage = 1
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource( 1 )
+
+[editable path="HitBox"]

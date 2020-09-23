@@ -693,7 +693,8 @@ __meta__ = {
 }
 
 [node name="Shortcut3" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 40.0
+margin_right = 56.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
@@ -715,7 +716,8 @@ __meta__ = {
 }
 
 [node name="Shortcut4" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 60.0
+margin_right = 76.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
@@ -737,7 +739,8 @@ __meta__ = {
 }
 
 [node name="Shortcut5" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 80.0
+margin_right = 96.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
@@ -759,7 +762,8 @@ __meta__ = {
 }
 
 [node name="Shortcut6" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 100.0
+margin_right = 116.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
@@ -781,7 +785,8 @@ __meta__ = {
 }
 
 [node name="Shortcut7" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 120.0
+margin_right = 136.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
@@ -803,7 +808,8 @@ __meta__ = {
 }
 
 [node name="Shortcut8" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 140.0
+margin_right = 156.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
@@ -825,7 +831,8 @@ __meta__ = {
 }
 
 [node name="Shortcut9" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 160.0
+margin_right = 176.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
@@ -847,7 +854,8 @@ __meta__ = {
 }
 
 [node name="Shortcut10" type="TextureRect" parent="CanvasLayer/Skillbar/Background/HBoxContainer"]
-margin_right = 16.0
+margin_left = 180.0
+margin_right = 196.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 16, 16 )
 size_flags_horizontal = 4
